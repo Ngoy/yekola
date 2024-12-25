@@ -10,39 +10,76 @@ import {
 
 const App = () => {
   return (
-    <ScrollView style={styles.container}>
-      <Text style={styles.main}> Listes des produits</Text>
+    <View style={styles.container}>
 
-      <View style={styles.pictureBox}>
-        <Image
-          style={styles.picture}
-          source={{
-            uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
-          }}
-        />
-      </View>
+      <ScrollView horizontal={true} style={styles.horinzontlStyle}>
+        <View style={styles.pictureBox}>
+          <Image
+            style={styles.picture}
+            source={{
+              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
+            }}
+          />
+        </View>
+        <View style={styles.pictureBox}>
+          <Image
+            style={styles.picture}
+            source={{
+              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
+            }}
+          />
+        </View>
+        <View style={styles.pictureBox}>
+          <Image
+            style={styles.picture}
+            source={{
+              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
+            }}
+          />
+        </View>
+        <View style={styles.pictureBox}>
+          <Image
+            style={styles.picture}
+            source={{
+              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
+            }}
+          />
+        </View>
+        <View style={styles.pictureBox}>
+          <Image
+            style={styles.picture}
+            source={{
+              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
+            }}
+          />
+        </View>
+      </ScrollView>
 
-      <View style={styles.box}>
-        <View style={styles.item1}> </View>
-        <View style={styles.item2}></View>
-        <View style={styles.item3}> </View>
-        <View style={styles.item4}></View>
-      </View>
+      <ScrollView>
+        <Text style={styles.main}> Listes des produits</Text>
 
-      <View style={styles.box}>
-        <View style={styles.item1}> </View>
-        <View style={styles.item2}></View>
-        <View style={styles.item3}> </View>
-        <View style={styles.item4}></View>
-      </View>
+        <View style={styles.box}>
+          <View style={styles.item1}> </View>
+          <View style={styles.item2}></View>
+          <View style={styles.item3}> </View>
+          <View style={styles.item4}></View>
+        </View>
 
-      <View style={styles.box}>
-        <View style={styles.item1}> </View>
-        <View style={styles.item2}></View>
-        <View style={styles.item3}> </View>
-        <View style={styles.item4}></View>
-      </View>
-    </ScrollView>
+        <View style={styles.box}>
+          <View style={styles.item1}> </View>
+          <View style={styles.item2}></View>
+          <View style={styles.item3}> </View>
+          <View style={styles.item4}></View>
+        </View>
+
+        <View style={styles.box}>
+          <View style={styles.item1}> </View>
+          <View style={styles.item2}></View>
+          <View style={styles.item3}> </View>
+          <View style={styles.item4}></View>
+        </View>
+      </ScrollView>
+    </View>
   );
 };
 
@@ -96,8 +133,8 @@ const styles = StyleSheet.create({
   },
   pictureBox: {
     backgroundColor: "blue",
-    width: "auto",
-    height: 300,
+    width: 150,
+    height: "100%",
     borderRadius: 20,
     overflow: "hidden",
   },
@@ -109,6 +146,11 @@ const styles = StyleSheet.create({
     height: "100%",
     resizeMode: "stretch",
   },
+
+  horinzontlStyle :{
+    backgroundColor : "yellow",
+    height : 300,
+  }
 });
 
 export default App;
