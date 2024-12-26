@@ -1,156 +1,119 @@
-import React, { useState } from "react";
+import React from "react";
 import {
-  View,
-  Text,
-  Image,
-  StyleSheet,
-  ScrollView,
-  Button,
-} from "react-native";
+  View, Text,Image,StyleSheet,ScrollView,TouchableOpacity,} from "react-native";
 
 const App = () => {
   return (
-    <View style={styles.container}>
+    <ScrollView style={styles.container}>
+      <View style={styles.box}>
+        <Image
+          source={{
+            uri: "https://pbs.twimg.com/profile_images/1540833024094388227/tob6L9cr_400x400.jpg",
+          }}
+          style={styles.logo}
+        />
+        <Image
+          source={{
+            uri: "https://th.bing.com/th/id/OIP.Lm66TcRRnnFlIO8dYELGxwHaFM?rs=1&pid=ImgDetMain",
+          }} // Remplacez par l'URL réelle de l'image
+          style={styles.shoeImage}
+        />
+        
+        <Text style={styles.title}>NIKE HYPERCHASE</Text>
+        <Text style={styles.subtitle}>Men's Basketball Shoes</Text>
 
-      <ScrollView horizontal={true} style={styles.horinzontlStyle}>
-        <View style={styles.pictureBox}>
-          <Image
-            style={styles.picture}
-            source={{
-              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
-            }}
-          />
-        </View>
-        <View style={styles.pictureBox}>
-          <Image
-            style={styles.picture}
-            source={{
-              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
-            }}
-          />
-        </View>
-        <View style={styles.pictureBox}>
-          <Image
-            style={styles.picture}
-            source={{
-              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
-            }}
-          />
-        </View>
-        <View style={styles.pictureBox}>
-          <Image
-            style={styles.picture}
-            source={{
-              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
-            }}
-          />
-        </View>
-        <View style={styles.pictureBox}>
-          <Image
-            style={styles.picture}
-            source={{
-              uri: "https://i.pinimg.com/736x/e2/cb/29/e2cb29cd11f0ea5513b4dc0cc9842087.jpg",
-            }}
-          />
-        </View>
-      </ScrollView>
+        {/* Description */}
+        <Text style={styles.description}>
+          Lorem ipsum, dolor sit amet consectetur adipiscing elit. Duis at
+          malesuada enim, vitae porttitor elit.
+        </Text>
 
-      <ScrollView>
-        <Text style={styles.main}> Listes des produits</Text>
+        {/* Price */}
+        <Text style={styles.price}>125$</Text>
 
-        <View style={styles.box}>
-          <View style={styles.item1}> </View>
-          <View style={styles.item2}></View>
-          <View style={styles.item3}> </View>
-          <View style={styles.item4}></View>
-        </View>
-
-        <View style={styles.box}>
-          <View style={styles.item1}> </View>
-          <View style={styles.item2}></View>
-          <View style={styles.item3}> </View>
-          <View style={styles.item4}></View>
-        </View>
-
-        <View style={styles.box}>
-          <View style={styles.item1}> </View>
-          <View style={styles.item2}></View>
-          <View style={styles.item3}> </View>
-          <View style={styles.item4}></View>
-        </View>
-      </ScrollView>
-    </View>
+        {/* Add to Cart Button */}
+        <TouchableOpacity style={styles.button}>
+          <Text style={styles.buttonText}>ADD TO CART</Text>
+        </TouchableOpacity>
+      </View>
+    </ScrollView>
   );
+
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#C41C57",
+    backgroundColor: "red",
     padding: 10,
   },
   box: {
     backgroundColor: "white",
-    height: 400,
-    width: "auto",
-    margin: 10,
-    // padding: 20,
-    // marginRight : 20,
-
-    display: "flex",
-    flexDirection: "row",
+    borderRadius: 10,
+    padding: 20,
     alignItems: "center",
-    justifyContent: "space-between",
+    marginTop: 65,
   },
-  item1: {
-    backgroundColor: "blue",
-    height: 100,
+  logo: {
     width: 50,
+    height: 20,
+    resizeMode: "contain",
+    marginBottom: 10,
   },
-
-  item2: {
-    backgroundColor: "red",
-    height: 100,
-    width: 50,
+  shoeImage: {
+    width: 300,
+    height: 150,
+    resizeMode: "contain",
+    marginBottom: 20,
   },
-  item3: {
-    backgroundColor: "yellow",
-    height: 100,
-    width: 50,
-  },
-  item4: {
-    backgroundColor: "green",
-    height: 100,
-    width: 50,
-  },
-  main: {
-    backgroundColor: "white",
-    fontWeight: 900,
-    fontSize: 30,
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "#2D5EFF",
     textAlign: "center",
-    color: "blue",
-    textTransform: "capitalize",
   },
-  pictureBox: {
-    backgroundColor: "blue",
-    width: 150,
-    height: "100%",
+  subtitle: {
+    fontSize: 16,
+    color: "#555",
+    textAlign: "center",
+    marginBottom: 10,
+  },
+  description: {
+    fontSize: 14,
+    color: "#888",
+    textAlign: "center",
+    marginVertical: 10,
+    lineHeight: 20,
+  },
+  colorOptions: {
+    flexDirection: "row",
+    justifyContent: "center",
+    marginVertical: 10,
+  },
+  colorCircle: {
+    width: 20,
+    height: 20,
+    borderRadius: 10,
+    marginHorizontal: 5,
+  },
+  price: {
+    fontSize: 24,
+    fontWeight: "bold",
+    color: "black",
+    marginVertical: 10,
+  },
+  button: {
+    backgroundColor: "#2D5EFF",
+    paddingVertical: 10,
+    paddingHorizontal: 30,
     borderRadius: 20,
-    overflow: "hidden",
+    marginTop: 30,
   },
-
-  picture: {
-    // width: 150,
-    // height: 150,
-    width: "auto",
-    height: "100%",
-    resizeMode: "stretch",
+  buttonText: {
+    color: "white",
+    fontWeight: "bold",
+    fontSize: 16,
   },
-
-  horinzontlStyle :{
-    backgroundColor : "yellow",
-    height : 300,
-  }
 });
 
 export default App;
