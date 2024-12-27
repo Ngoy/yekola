@@ -1,119 +1,139 @@
-import React from "react";
-import {
-  View, Text,Image,StyleSheet,ScrollView,TouchableOpacity,} from "react-native";
+import { View, Text, StyleSheet, ScrollView,Image } from "react-native";
 
 const App = () => {
   return (
     <ScrollView style={styles.container}>
       <View style={styles.box}>
+        {/* Regrouper les trois premières vues */}
+        <View style={styles.row}>
+          <View style={styles.discover}>
+            <Text style={styles.texteDiscover}>Discover</Text>
+          </View>
+          <View style={styles.iconeRecherche}></View>
+          <View style={styles.logophone}></View>
+        </View>
+
+        {/* Mettre le texte juste en dessous */}
+        <View style={styles.textePremier}>
+          <Text style={{ color: "white" }}>Mon texte ici</Text>
+        </View>
+
+        <View style={styles.imageSandal}>
         <Image
-          source={{
-            uri: "https://pbs.twimg.com/profile_images/1540833024094388227/tob6L9cr_400x400.jpg",
-          }}
-          style={styles.logo}
-        />
-        <Image
-          source={{
-            uri: "https://th.bing.com/th/id/OIP.Lm66TcRRnnFlIO8dYELGxwHaFM?rs=1&pid=ImgDetMain",
-          }} // Remplacez par l'URL réelle de l'image
-          style={styles.shoeImage}
-        />
-        
-        <Text style={styles.title}>NIKE HYPERCHASE</Text>
-        <Text style={styles.subtitle}>Men's Basketball Shoes</Text>
+            style={styles.image}
+            // source={require('../assets/images/lihau.png')} // Chemin de l'image locale
+            source={{uri: "https://i.ytimg.com/vi/IJ5st1B_fCA/maxresdefault.jpg",
+            }}
+          />,
+          
+        </View>
 
-        {/* Description */}
-        <Text style={styles.description}>
-          Lorem ipsum, dolor sit amet consectetur adipiscing elit. Duis at
-          malesuada enim, vitae porttitor elit.
-        </Text>
+        <View style={styles.row2}>
+          <View style={styles.discover}>
+            <Text style={styles.texteDiscover}>Sport77</Text>
+          </View>
+          <View style={styles.discover}>
+            <Text style={styles.textSeeAll}>Sport77</Text>
+          </View>
+           
+        </View>
 
-        {/* Price */}
-        <Text style={styles.price}>125$</Text>
+        <View style={styles.row3}>
+          <View style={styles.discover}>
+            <Text style={styles.texteDiscover}>Discover</Text>
+          </View>
+          <View style={styles.iconeRecherche}>xx</View>
+          <View style={styles.logophone}>xx</View>
+          <View style={styles.logophone}>xx</View>
+        </View>
 
-        {/* Add to Cart Button */}
-        <TouchableOpacity style={styles.button}>
-          <Text style={styles.buttonText}>ADD TO CART</Text>
-        </TouchableOpacity>
+
       </View>
     </ScrollView>
   );
-
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "red",
+    backgroundColor: "#2A004E",
     padding: 10,
   },
   box: {
     backgroundColor: "white",
     borderRadius: 10,
     padding: 20,
-    alignItems: "center",
     marginTop: 65,
+    display: "flex",
+    flexDirection: "column", // Organisation en colonne
+    justifyContent: "flex-start",
   },
-  logo: {
+  row: {
+    flexDirection: "row", // Organisation en ligne
+    justifyContent: "space-between", // Espacement équitable entre les éléments
+    alignItems: "center", // Alignement vertical
+  },
+  row2: {
+    marginTop:10,
+    flexDirection: "row", // Organisation en ligne
+    justifyContent:"space-between", // Espacement équitable entre les éléments
+    alignItems: "center", // Alignement vertical
+  },
+  row3: {
+    marginTop:0,
+    flexDirection: "row", // Organisation en ligne
+    justifyContent:"space-between", // Espacement équitable entre les éléments
+    alignItems: "center", // Alignement vertical
+  },
+  discover: {
+    backgroundColor: "#ECE852",
+    width: 100,
+    height: 30,
+  },
+  iconeRecherche: {
+    backgroundColor: "red",
     width: 50,
-    height: 20,
-    resizeMode: "contain",
-    marginBottom: 10,
+    height: 30,
   },
-  shoeImage: {
-    width: 300,
-    height: 150,
-    resizeMode: "contain",
-    marginBottom: 20,
+  logophone: {
+    backgroundColor: "#A1D6CB",
+    width: 50,
+    height: 30,
   },
-  title: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "#2D5EFF",
-    textAlign: "center",
+  image: {
+    width: "100%",
+    height: 200, // Dimensions de l'image
+    resizeMode: "stretch", // Ajuste l'image pour qu'elle s'affiche correctement
   },
-  subtitle: {
-    fontSize: 16,
-    color: "#555",
-    textAlign: "center",
-    marginBottom: 10,
-  },
-  description: {
-    fontSize: 14,
-    color: "#888",
-    textAlign: "center",
-    marginVertical: 10,
-    lineHeight: 20,
-  },
-  colorOptions: {
-    flexDirection: "row",
-    justifyContent: "center",
-    marginVertical: 10,
-  },
-  colorCircle: {
-    width: 20,
-    height: 20,
-    borderRadius: 10,
-    marginHorizontal: 5,
-  },
-  price: {
-    fontSize: 24,
-    fontWeight: "bold",
-    color: "black",
-    marginVertical: 10,
-  },
-  button: {
-    backgroundColor: "#2D5EFF",
-    paddingVertical: 10,
-    paddingHorizontal: 30,
-    borderRadius: 20,
-    marginTop: 30,
-  },
-  buttonText: {
+  texteDiscover: {
+    fontSize: 20,
     color: "white",
-    fontWeight: "bold",
-    fontSize: 16,
+    textAlign: "center",
   },
+  textePremier: {
+    backgroundColor: "#118B50",
+    fontSize: 20,
+    height: 30,
+    justifyContent: "center", // Centrer verticalement si nécessaire
+    alignItems: "center",
+    display: "flex",
+    marginTop: 5, // Ajout d'un petit espace pour simuler un retour à la ligne
+  },
+  imageSandal: {
+    backgroundColor: "#118B50",
+    fontSize: 20,
+    height: 200,
+    justifyContent: "center", // Centrer verticalement si nécessaire
+    alignItems: "center",
+    display: "flex",
+    marginTop: 5, // Ajout d'un petit espace pour simuler un retour à la ligne
+  },
+  textSeeAll: {
+    fontSize: 15,
+    color: "#000B58",
+    textAlign: "center",
+  },
+   
 });
 
 export default App;
