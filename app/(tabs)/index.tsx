@@ -1,139 +1,49 @@
-import { View, Text, StyleSheet, ScrollView,Image } from "react-native";
+import React from "react";
+import { View, Text, StyleSheet } from "react-native";
 
 const App = () => {
+  // Tableau d'objets simple
+  const Taches = [
+    { id: 1, title: "Apprendre React Native", completed: true },
+    { id: 2, title: "Créer une application mobile", completed: false },
+    { id: 3, title: "Publier l'application", completed: false },
+  ];
+
   return (
-    <ScrollView style={styles.container}>
-      <View style={styles.box}>
-        {/* Regrouper les trois premières vues */}
-        <View style={styles.row}>
-          <View style={styles.discover}>
-            <Text style={styles.texteDiscover}>Discover</Text>
-          </View>
-          <View style={styles.iconeRecherche}></View>
-          <View style={styles.logophone}></View>
+    <View style={styles.container}>
+      <Text style={styles.title}>Liste des Tâches</Text>
+
+      {/* Afficher les données avec map */}
+      {Taches.map((task) => (
+        <View key={task.id} style={styles.taskItem}>
+          <Text>{task.title}</Text>
+          <Text>Status: {task.completed ? "Terminé" : "En cours"}</Text>
         </View>
-
-        {/* Mettre le texte juste en dessous */}
-        <View style={styles.textePremier}>
-          <Text style={{ color: "white" }}>Mon texte ici</Text>
-        </View>
-
-        <View style={styles.imageSandal}>
-        <Image
-            style={styles.image}
-            // source={require('../assets/images/lihau.png')} // Chemin de l'image locale
-            source={{uri: "https://i.ytimg.com/vi/IJ5st1B_fCA/maxresdefault.jpg",
-            }}
-          />,
-          
-        </View>
-
-        <View style={styles.row2}>
-          <View style={styles.discover}>
-            <Text style={styles.texteDiscover}>Sport77</Text>
-          </View>
-          <View style={styles.discover}>
-            <Text style={styles.textSeeAll}>Sport77</Text>
-          </View>
-           
-        </View>
-
-        <View style={styles.row3}>
-          <View style={styles.discover}>
-            <Text style={styles.texteDiscover}>Discover</Text>
-          </View>
-          <View style={styles.iconeRecherche}>xx</View>
-          <View style={styles.logophone}>xx</View>
-          <View style={styles.logophone}>xx</View>
-        </View>
-
-
-      </View>
-    </ScrollView>
+      ))}
+    </View>
   );
 };
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    backgroundColor: "#2A004E",
     padding: 10,
+    backgroundColor: "#f8f8f8",
   },
-  box: {
-    backgroundColor: "white",
-    borderRadius: 10,
-    padding: 20,
-    marginTop: 65,
-    display: "flex",
-    flexDirection: "column", // Organisation en colonne
-    justifyContent: "flex-start",
+  title: {
+    fontSize: 24,
+    fontWeight: "bold",
+    marginBottom: 10,
+    color: "blue",
   },
-  row: {
-    flexDirection: "row", // Organisation en ligne
-    justifyContent: "space-between", // Espacement équitable entre les éléments
-    alignItems: "center", // Alignement vertical
+  taskItem: {
+    padding: 10,
+    marginVertical: 5,
+    backgroundColor: "#fff",
+    borderWidth: 1,
+    borderColor: "#ddd",
+    borderRadius: 5,
   },
-  row2: {
-    marginTop:10,
-    flexDirection: "row", // Organisation en ligne
-    justifyContent:"space-between", // Espacement équitable entre les éléments
-    alignItems: "center", // Alignement vertical
-  },
-  row3: {
-    marginTop:0,
-    flexDirection: "row", // Organisation en ligne
-    justifyContent:"space-between", // Espacement équitable entre les éléments
-    alignItems: "center", // Alignement vertical
-  },
-  discover: {
-    backgroundColor: "#ECE852",
-    width: 100,
-    height: 30,
-  },
-  iconeRecherche: {
-    backgroundColor: "red",
-    width: 50,
-    height: 30,
-  },
-  logophone: {
-    backgroundColor: "#A1D6CB",
-    width: 50,
-    height: 30,
-  },
-  image: {
-    width: "100%",
-    height: 200, // Dimensions de l'image
-    resizeMode: "stretch", // Ajuste l'image pour qu'elle s'affiche correctement
-  },
-  texteDiscover: {
-    fontSize: 20,
-    color: "white",
-    textAlign: "center",
-  },
-  textePremier: {
-    backgroundColor: "#118B50",
-    fontSize: 20,
-    height: 30,
-    justifyContent: "center", // Centrer verticalement si nécessaire
-    alignItems: "center",
-    display: "flex",
-    marginTop: 5, // Ajout d'un petit espace pour simuler un retour à la ligne
-  },
-  imageSandal: {
-    backgroundColor: "#118B50",
-    fontSize: 20,
-    height: 200,
-    justifyContent: "center", // Centrer verticalement si nécessaire
-    alignItems: "center",
-    display: "flex",
-    marginTop: 5, // Ajout d'un petit espace pour simuler un retour à la ligne
-  },
-  textSeeAll: {
-    fontSize: 15,
-    color: "#000B58",
-    textAlign: "center",
-  },
-   
 });
 
 export default App;
